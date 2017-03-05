@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BattleService } from './services/battle.service';
+import { RollService } from './services/roll.service';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,9 @@ import { BattleService } from './services/battle.service';
     HttpModule,
     AppRoutingModule
   ],
-  providers: [BattleService],
+  providers: [
+    BattleService,
+    RollService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
