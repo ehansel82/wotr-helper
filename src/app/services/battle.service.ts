@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ShadowArmy } from '../models/shadowArmy';
-import { FreeArmy } from '../models/freeArmy';
+import { ShadowArmy } from '../models/armies';
+import { FreeArmy } from '../models/armies';
 import { Location} from '../models/location';
 
 @Injectable()

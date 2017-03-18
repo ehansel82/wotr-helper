@@ -1,4 +1,6 @@
-import { Leader } from './leader';
+export class Leader {
+    public leadership: number;
+}
 
 export class Gandalf extends Leader {
 
