@@ -8,11 +8,13 @@ import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { BattleService } from './services/battle.service';
 import { RollService } from './services/roll.service';
+import { BattleComponent } from './battle/battle.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    BattleComponent
   ],
   imports: [
     BrowserModule,

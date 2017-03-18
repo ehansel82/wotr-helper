@@ -5,12 +5,17 @@ export class Army {
     }
     public standardCount: number;
     public eliteCount: number;
+
+    public get totalHits():number  {
+        return (this.standardCount + (this.eliteCount + 2));
+    }
+
+    public get combatStrength():number  {
+        return (this.standardCount + this.eliteCount);
+    }
 }
 
 export class FreeArmy extends Army {
-    /**
-     *
-     */
     constructor(standardCount: number, eliteCount: number) {
         super(standardCount, eliteCount);
     }
@@ -19,9 +24,6 @@ export class FreeArmy extends Army {
 }
 
 export class ShadowArmy extends Army {
-    /**
-     *
-     */
     constructor(standardCount: number, eliteCount: number) {
         super(standardCount, eliteCount);
     }

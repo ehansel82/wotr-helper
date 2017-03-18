@@ -1,21 +1,24 @@
 import { Injectable } from '@angular/core';
-import { ShadowArmy } from '../models/armies';
-import { FreeArmy } from '../models/armies';
-import { Location} from '../models/location';
+import { ShadowArmy, FreeArmy } from '../models/armies';
+import { BattleLocation, Battle, RoundResult } from '../models/battles';
+import { RollService } from './roll.service';
 
 @Injectable()
 export class BattleService {
 
-  constructor() { }
+  constructor(private rollService: RollService) { }
 
-  private _freeArmy: FreeArmy;
-  private _shadowArmy: ShadowArmy;
-  private _location: Location;
+  public newBattle(freeArmy: FreeArmy, 
+                  shadowArmy: ShadowArmy, 
+                  location: BattleLocation): Battle {
+     return new Battle(freeArmy, shadowArmy, location);
+  }
 
-  public newBattle(freeArmy: FreeArmy, shadowArmy: ShadowArmy, location:Location) {
-    this._freeArmy = freeArmy;
-    this._shadowArmy = shadowArmy;
-    this._location = location;
+  public commence(battle:Battle){
+    let result = new RoundResult();
+    result.freeRoll = this.rollService.roll(battle.freeArmy.combatStrength);
+    result.shadowRoll = this.rollService.roll(battle.shadowArmy.combatStrength);
+    return result;
   }
 
 }
