@@ -2,6 +2,20 @@
   battle works!
 </p>
 
+<label>Free Regular:</label>
+<input name="freeRegular" type="number" [(ngModel)]="freeRegular"/>
+
+<label>Free Elites:</label>
+<input name="freeElites" type="number" [(ngModel)]="freeElite"/>
+
+<label>Shadow Regular:</label>
+<input name="shadowRegular" type="number" [(ngModel)]="shadowRegular"/>
+
+<label>Free Elites:</label>
+<input name="shadowElites" type="number" [(ngModel)]="shadowElite"/>
+
+<button (click)="startBattle()">Battle!</button>
+
 <div>Free Rolls</div>
 <p *ngFor="let roll of result.freeRoll">{{roll}} </p>
 

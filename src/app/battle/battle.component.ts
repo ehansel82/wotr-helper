@@ -14,14 +14,22 @@ export class BattleComponent implements OnInit {
     this.result = new RoundResult();
   }
 
+  freeRegular: number;
+  freeElite: number;
+  shadowRegular: number;
+  shadowElite: number;
+  location: BattleLocation;
   result: RoundResult;
 
-  ngOnInit() {
-    let sA = new ShadowArmy(2, 1);
-    let fA = new FreeArmy(0, 5);
+  startBattle(): void {
+    let sA = new ShadowArmy(this.shadowRegular, this.shadowElite);
+    let fA = new FreeArmy(this.freeRegular, this.freeElite);
     let loc = BattleLocation.Field;
     let battle = this.battleService.newBattle(fA, sA, loc);
     this.result = this.battleService.commence(battle);
+  }
+
+  ngOnInit() {
   }
 
 }

@@ -24,7 +24,8 @@ import { BattleComponent } from './battle/battle.component';
   ],
   providers: [
     BattleService,
-    RollService],
+    RollService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
