@@ -16,6 +16,10 @@
 
 <button (click)="startBattle()">Battle!</button>
 
+<ul>
+<li *ngFor="let msg of messages">{{msg}}</li>
+</ul>
+
 <div>Free Rolls</div>
 <p *ngFor="let roll of result.freeRoll">{{roll}} </p>
 

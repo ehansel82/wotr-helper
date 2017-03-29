@@ -6,7 +6,6 @@ import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { BattleService } from './services/battle.service';
 import { RollService } from './services/roll.service';
 import { BattleComponent } from './battle/battle.component';
 
@@ -23,7 +22,6 @@ import { BattleComponent } from './battle/battle.component';
     AppRoutingModule
   ],
   providers: [
-    BattleService,
     RollService
   ],
   bootstrap: [AppComponent]
