@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { RollService } from './services/roll.service';
+import { BattleService } from './services/battle.service';
 import { BattleComponent } from './battle/battle.component';
 
 @NgModule({
@@ -22,7 +23,8 @@ import { BattleComponent } from './battle/battle.component';
     AppRoutingModule
   ],
   providers: [
-    RollService
+    RollService,
+    BattleService
   ],
   bootstrap: [AppComponent]
 })

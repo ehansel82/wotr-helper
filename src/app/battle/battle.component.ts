@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 
 import { RollService } from '../services/roll.service';
 import { ShadowArmy, FreeArmy } from '../models/armies';
-import { Battle, BattleLocation, RoundResult } from '../models/battles';
+import { BattleService, BattleLocation, RoundResult } from '../services/battle.service';
 
 @Component({
   selector: 'app-battle',
@@ -11,7 +11,8 @@ import { Battle, BattleLocation, RoundResult } from '../models/battles';
 })
 export class BattleComponent implements OnInit {
 
-  constructor(private rollService: RollService) { 
+  constructor(private rollService: RollService,
+              private battleService: BattleService) { 
     this.result = new RoundResult();
   }
 
@@ -21,18 +22,17 @@ export class BattleComponent implements OnInit {
   shadowElite: number;
   location: BattleLocation;
   result: RoundResult;
-  battle: Battle;
   messages: string[];
 
   startBattle(): void {
     let sA = new ShadowArmy(this.shadowRegular, this.shadowElite);
     let fA = new FreeArmy(this.freeRegular, this.freeElite);
     let loc = BattleLocation.Field;
-    this.battle = new Battle(fA, sA, loc, this.rollService);
-    this.battle.Status.subscribe(x => {
+    this.battleService.Init(fA, sA, loc);
+    this.battleService.Status.subscribe(x => {
       this.messages.push(x);
     });
-    this.result =  this.battle.commence();
+    this.result =  this.battleService.commence();
   }
 
   ngOnInit() {
